@@ -45,6 +45,9 @@ typings/
 # Next.js
 .next
 
+# VS Code
+.vscode
+
 # Optional npm cache directory
 .npm
 

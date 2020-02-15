@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import ReactDOM from 'react-dom';
 
 export default function Films() {
   return (
