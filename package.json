@@ -1,0 +1,32 @@
+{
+  "name": "starwars-api-reactor",
+  "version": "1.0.0",
+  "description": "Star Wars API Reactor is intended as a learning project and aims to utilise the following Tech Stack:",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build",
+    "test": "echo \"Error: No Test Specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Webmoss/starwars-api-reactor.git"
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "NextJS"
+  ],
+  "author": "Craig Moss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Webmoss/starwars-api-reactor/issues"
+  },
+  "homepage": "https://github.com/Webmoss/starwars-api-reactor#readme",
+  "dependencies": {
+    "next": "^9.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
