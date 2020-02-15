@@ -21,7 +21,31 @@
       "static/runtime/polyfills.js",
       "static/runtime/polyfills.js.map"
     ],
+    "/about": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/films": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
     "/index": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/people": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/planets": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/species": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/starships": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

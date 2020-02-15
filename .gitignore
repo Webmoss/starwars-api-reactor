@@ -42,6 +42,9 @@ dist/
 # Typescript v1 declaration files
 typings/
 
+# Next.js
+.next
+
 # Optional npm cache directory
 .npm
 

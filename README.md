@@ -26,13 +26,15 @@ Initial steps include setup of a Github Repo which contains a README.md
 We then initialise the project and setup our core stack
 
 npm init -y
-npm install --save react react-dom next
-mkdir pages
-
 
 1. Install & Setup Next.js React Framework
 
+npm install --save react react-dom next
+mkdir pages
+
 2. Install & Setup Redux
+
+
 
 3. Install & Setup Apollo Client
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function Species() {
+export default function About() {
   return (
     <div>
-      <p>This is the Star Wars Species page</p>
+      <p>This is the Star Wars About page</p>
     </div>
   );
 }
