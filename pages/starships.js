@@ -1,11 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Link from 'next/link';
+import Layout from '../components/Layout';
 
 export default function Starships() {
   return (
-    <div>
-      <p>This is the Star Wars Starships page</p>
-    </div>
+    <Layout>
+      <p>This is the Star Wars Species page</p>
+    </Layout>
   );
 }
