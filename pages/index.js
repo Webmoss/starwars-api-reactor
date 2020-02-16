@@ -1,22 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import Header from '../components/header/Header.js';
-import Slider from '../components/slider/Slider.js';
-import Sidebar from '../components/sidebar/Sidebar.js';
-import Footer from '../components/footer/Footer.js';
+import '../public/sass/style.global.sass'
+import Layout from '../components/Layout';
 
 export default function Index() {
   return (
-    <div>
-
-      <Header />
-      <Slider />
-
+    <Layout>
       <p>Hello Star Wars Fans!</p>
-
-      <Sidebar />
-      <Footer />  
-    </div>
+    </Layout>
   );
 }

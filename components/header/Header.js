@@ -1,23 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Link from 'next/link';
 
 const linkStyle = {
-  marginRight: 15
+  color: '#ffe81f',
+  marginRight: 15,
+
 };
 
 const Header = () => (
   <div className="header">
+
     <div className="logo">
       <Link href="/">
-        <img src="/assets/images/star-wars-logo.png" alt="Star Wars Logo"/>
+        <img src="/images/star-wars-logo.png" alt="Star Wars Logo"/>
       </Link>
     </div>
+
     <div className="navigation">
       <ul>
         <li>
           <Link href={{ pathname: '/about' }}>
-            <a title="About Page" style={linkStyle}>About Page</a>
+            <a title="About Star Wars" style={linkStyle}>About</a>
           </Link>
         </li>
         <li>

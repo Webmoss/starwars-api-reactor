@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Link from 'next/link';
+import Layout from '../components/Layout';
 
 export default function About() {
   return (
-    <div>
+    <Layout>
       <p>This is the Star Wars About page</p>
-    </div>
+    </Layout>
   );
 }
+    

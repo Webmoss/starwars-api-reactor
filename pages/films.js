@@ -1,10 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Layout from '../components/Layout';
 
 export default function Films() {
   return (
-    <div>
+    <Layout>
       <p>This is the Star Wars Films page</p>
-    </div>
+    </Layout>
   );
 }
+    
