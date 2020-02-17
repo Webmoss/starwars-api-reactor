@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import "./styles.sass";
 
 const Footer = () => (
   <div className="footer">
-    <p>This is Footer content</p>
+    <p>Do. Or do not. There is no try! - Yoda</p>
   </div>
 );
 

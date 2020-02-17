@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import "./styles.sass";
 
 const Sidebar = () => (
   <div className="sidebar">

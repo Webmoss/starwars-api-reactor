@@ -11,24 +11,20 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _header_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header/Header */ "./components/header/Header.js");
-/* harmony import */ var _slider_Slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./slider/Slider */ "./components/slider/Slider.js");
-/* harmony import */ var _footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./footer/Footer */ "./components/footer/Footer.js");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _header_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header/Header */ "./components/header/Header.js");
+/* harmony import */ var _slider_Slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slider/Slider */ "./components/slider/Slider.js");
+/* harmony import */ var _footer_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./footer/Footer */ "./components/footer/Footer.js");
 
 
 
 
-const layoutStyle = {
-  margin: 0,
-  padding: 0,
-  width: '100%',
-  height: '100vh',
-  backgroundColor: '#000000'
-};
+
 
 const Layout = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  style: layoutStyle
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_slider_Slider__WEBPACK_IMPORTED_MODULE_2__["default"], null), props.children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  className: "main-container"
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_slider_Slider__WEBPACK_IMPORTED_MODULE_3__["default"], null), props.children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
 
@@ -45,14 +41,14 @@ const Layout = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createEleme
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.sass */ "./components/footer/styles.sass");
+/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_sass__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 const Footer = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "footer"
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "This is Footer content"));
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Do. Or do not. There is no try! - Yoda"));
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
 
@@ -71,31 +67,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles.sass */ "./components/header/styles.sass");
+/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_sass__WEBPACK_IMPORTED_MODULE_2__);
 
 
-const linkStyle = {
-  color: '#ffe81f',
-  marginRight: 15
-};
+
 
 const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "header"
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "logo"
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  href: "/"
+  href: {
+    pathname: '/'
+  }
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  title: "Home"
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
   src: "/images/star-wars-logo.png",
   alt: "Star Wars Logo"
-}))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+})))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "navigation"
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  href: {
+    pathname: '/'
+  }
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  title: "Home"
+}, "Home"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
     pathname: '/about'
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "About Star Wars",
-  style: linkStyle
+  title: "About Star Wars"
 }, "About"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
     pathname: '/films',
@@ -104,8 +108,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     }
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "Films Page",
-  style: linkStyle
+  title: "Films Page"
 }, "Films"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
     pathname: '/people',
@@ -114,8 +117,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     }
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "People Page",
-  style: linkStyle
+  title: "People Page"
 }, "People"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
     pathname: '/films',
@@ -124,8 +126,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     }
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "Films Page",
-  style: linkStyle
+  title: "Films Page"
 }, "Films"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
     pathname: '/species',
@@ -134,8 +135,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     }
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "Species Page",
-  style: linkStyle
+  title: "Species Page"
 }, "Species"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
     pathname: '/starships',
@@ -144,8 +144,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     }
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "Starships Page",
-  style: linkStyle
+  title: "Starships Page"
 }, "Starships"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
     pathname: '/vehicles',
@@ -154,8 +153,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     }
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "Vehicles Page",
-  style: linkStyle
+  title: "Vehicles Page"
 }, "Vehicles"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
     pathname: '/planets',
@@ -164,8 +162,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     }
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "Planets Page",
-  style: linkStyle
+  title: "Planets Page"
 }, "Planets"))))));
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
@@ -183,13 +180,24 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.sass */ "./components/slider/styles.sass");
+/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_sass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _public_images_star_wars_banner_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../public/images/star-wars-banner.jpg */ "./public/images/star-wars-banner.jpg");
 
 
+
+const bg = {
+  backgroundImage: `url(${_public_images_star_wars_banner_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]})`,
+  backgroundPosition: 'center',
+  backgroundZize: 'cover',
+  backgroundRepeat: 'no-repeat'
+};
 
 const Slider = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  className: "slider"
+  className: "slider",
+  styles: {
+    bg
+  }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "This is Slider content"));
 
 /* harmony default export */ __webpack_exports__["default"] = (Slider);
@@ -8019,17 +8027,6 @@ exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node
 
 /***/ }),
 
-/***/ "./node_modules/react-dom/index.js":
-/*!***********************************************************************************************!*\
-  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_ef0ff7c60362f24a921f ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(/*! dll-reference dll_ef0ff7c60362f24a921f */ "dll-reference dll_ef0ff7c60362f24a921f"))("./node_modules/react-dom/index.js");
-
-/***/ }),
-
 /***/ "./node_modules/react-is/cjs/react-is.development.js":
 /*!***********************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.development.js ***!
@@ -9820,11 +9817,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
 /* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__);
-
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -9833,16 +9827,27 @@ __webpack_require__.r(__webpack_exports__);
 const Index = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"));
 
 Index.getInitialProps = async function () {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default()('https://swapi.co/api/films');
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('https://swapi.co/api/films');
   const data = await res.json();
-  console.log("Data", data.results);
-  console.log(`Films data Fetched. Count: ${data.count}`);
   return {
     films: data.results.map(result => result)
   };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
+
+/***/ }),
+
+/***/ "./public/images/star-wars-banner.jpg":
+/*!********************************************!*\
+  !*** ./public/images/star-wars-banner.jpg ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "d5be36de7a5513e6f8e2508ae0d16809.jpg");
 
 /***/ }),
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 import fetch from 'isomorphic-unfetch';
 
 
@@ -20,9 +20,6 @@ Film.getInitialProps = async function(context) {
   const { id } = context.query;
   const res = await fetch(`https://swapi.co/api/films/${id}`);
   const film = await res.json();
-
-  console.log(`Fetched Films: ${film.name}`);
-
   return { film };
 };
 
