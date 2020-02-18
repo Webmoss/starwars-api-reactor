@@ -44,6 +44,7 @@ typings/
 
 # Next.js
 .next
+.next/
 
 # VS Code
 .vscode

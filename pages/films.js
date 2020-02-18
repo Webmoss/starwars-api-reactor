@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import '../public/sass/style.global.sass'
 import Layout from '../components/Layout';
 import Link from 'next/link';
@@ -6,6 +7,10 @@ import fetch from 'isomorphic-unfetch';
 
 const Films = props => (
   <Layout>
+    <Head>
+        <title>Films - Star Wars API Reactor</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     <h2>Star Wars Films</h2>
     <ul>
       {props.films.map(film => (
