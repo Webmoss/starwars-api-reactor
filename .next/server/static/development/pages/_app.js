@@ -110,6 +110,18 @@ module.exports = _interopRequireDefault;
 
 /***/ }),
 
+/***/ "./node_modules/next/app.js":
+/*!**********************************!*\
+  !*** ./node_modules/next/app.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./dist/pages/_app */ "./node_modules/next/dist/pages/_app.js")
+
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/next-server/lib/utils.js":
 /*!*********************************************************!*\
   !*** ./node_modules/next/dist/next-server/lib/utils.js ***!
@@ -378,15 +390,166 @@ function createUrl(router) {
 
 /***/ }),
 
+/***/ "./pages/_app.js":
+/*!***********************!*\
+  !*** ./pages/_app.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_apollo_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/apollo-client */ "./utils/apollo-client.js");
+
+
+
+
+
+class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
+  render() {
+    const {
+      Component,
+      pageProps,
+      apollo
+    } = this.props;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["ApolloProvider"], {
+      client: apollo
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, pageProps));
+  }
+
+} // Wraps all components in the tree with the data provider
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_utils_apollo_client__WEBPACK_IMPORTED_MODULE_3__["default"])(MyApp));
+
+/***/ }),
+
+/***/ "./utils/apollo-client.js":
+/*!********************************!*\
+  !*** ./utils/apollo-client.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var apollo_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! apollo-client */ "apollo-client");
+/* harmony import */ var apollo_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(apollo_client__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-cache-inmemory */ "apollo-cache-inmemory");
+/* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_with_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next-with-apollo */ "next-with-apollo");
+/* harmony import */ var next_with_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_with_apollo__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-link-http */ "apollo-link-http");
+/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(apollo_link_http__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+ // Update the GraphQL endpoint to any instance of GraphQL that you like
+
+const GRAPHQL_URL = 'https://swapi.co/api/films';
+const link = Object(apollo_link_http__WEBPACK_IMPORTED_MODULE_3__["createHttpLink"])({
+  fetch: (isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default()),
+  // Switches between unfetch & node-fetch for client & server.
+  uri: GRAPHQL_URL
+}); // Export a HOC from next-with-apollo
+// Docs: https://www.npmjs.com/package/next-with-apollo
+
+/* harmony default export */ __webpack_exports__["default"] = (next_with_apollo__WEBPACK_IMPORTED_MODULE_2___default()( // You can get headers and ctx (context) from the callback params
+// e.g. ({ headers, ctx, initialState })
+({
+  initialState
+}) => new apollo_client__WEBPACK_IMPORTED_MODULE_0__["ApolloClient"]({
+  link: link,
+  cache: new apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_1__["InMemoryCache"]() //  rehydrate the cache using the initial data passed from the server:
+  .restore(initialState || {})
+})));
+
+/***/ }),
+
 /***/ 0:
-/*!**********************************!*\
-  !*** multi next/dist/pages/_app ***!
-  \**********************************/
+/*!****************************************!*\
+  !*** multi private-next-pages/_app.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next/dist/pages/_app */"./node_modules/next/dist/pages/_app.js");
+module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_app.js");
 
+
+/***/ }),
+
+/***/ "@apollo/react-hooks":
+/*!**************************************!*\
+  !*** external "@apollo/react-hooks" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@apollo/react-hooks");
+
+/***/ }),
+
+/***/ "apollo-cache-inmemory":
+/*!****************************************!*\
+  !*** external "apollo-cache-inmemory" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("apollo-cache-inmemory");
+
+/***/ }),
+
+/***/ "apollo-client":
+/*!********************************!*\
+  !*** external "apollo-client" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("apollo-client");
+
+/***/ }),
+
+/***/ "apollo-link-http":
+/*!***********************************!*\
+  !*** external "apollo-link-http" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("apollo-link-http");
+
+/***/ }),
+
+/***/ "isomorphic-unfetch":
+/*!*************************************!*\
+  !*** external "isomorphic-unfetch" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-unfetch");
+
+/***/ }),
+
+/***/ "next-with-apollo":
+/*!***********************************!*\
+  !*** external "next-with-apollo" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-with-apollo");
 
 /***/ }),
 

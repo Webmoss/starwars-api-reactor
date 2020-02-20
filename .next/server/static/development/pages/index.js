@@ -329,6 +329,30 @@ const Slider = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
 
 /***/ }),
 
+/***/ "./graphql/films.query.js":
+/*!********************************!*\
+  !*** ./graphql/films.query.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+
+const FILMS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
+  query Films($id: ID!) {
+    Films(id: $id) {
+      id
+      title
+    }
+  }
+`;
+/* harmony default export */ __webpack_exports__["default"] = (FILMS_QUERY);
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js ***!
@@ -2013,35 +2037,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _graphql_films_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../graphql/films.query */ "./graphql/films.query.js");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
 
 
 
 
 
 
-const Index = props => {
+
+const Index = () => {
+  // Create a query hook
+  const {
+    data,
+    loading,
+    error
+  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(_graphql_films_query__WEBPACK_IMPORTED_MODULE_3__["default"]);
+  console.log("Error:", error);
+
+  if (error) {
+    // return "<p>Error:" + JSON.stringify(error) +"</p>";
+    if (typeof error === 'string') {
+      return error;
+    }
+
+    if (error && error.message) {
+      return error.message.replace(/GraphQL Error:/gi, '');
+    } // Handle GraphQL Errors
+
+
+    if (error && error.graphQLErrors && error.graphQLErrors.errors[0]) {
+      return error.graphQLErrors.errors[0].message.replace(/GraphQL Error:/gi, '');
+    } // Handle Request Errors
+
+
+    if (error && error.networkError && error.networkError.statusCode !== 200) {
+      switch (error.networkError.statusCode) {
+        case 400:
+          return 'Error 400 :: Not Found';
+
+        case 500:
+          return 'Error 500 : Server Error';
+
+        case 403:
+          return 'Error 403: Unauthorized';
+
+        default:
+          return `${error.networkError.statusCode} :: An error Occurred`;
+      }
+    }
+  }
+
+  console.log("Loading:", loading); // This can be handled better
+
+  if (loading) {
+    return "<p>Loading...</p>";
+  }
+
+  console.log("Data:", data);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "app"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "Star Wars API Reactor - BUIDL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
     name: "viewport",
     content: "initial-scale=1.0, width=device-width"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+    rel: "icon",
+    href: "/favicon.ico"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     className: "main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"))));
-};
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    class: "films-intros"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, data.results.map(film => {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: `film__${film.id}`
+    }, film.name);
+  }))))));
+}; // Index.getInitialProps = async function() {
+//   const res = await fetch('https://swapi.co/api/films');
+//   const data = await res.json();
+//   return {
+//     films: data.results.map(result => result)
+//   };
+// };
 
-Index.getInitialProps = async function () {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default()('https://swapi.co/api/films');
-  const data = await res.json();
-  return {
-    films: data.results.map(result => result)
-  };
-};
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
 
@@ -2080,6 +2162,17 @@ __webpack_require__.r(__webpack_exports__);
 
 module.exports = __webpack_require__(/*! /Users/craigmoss/Apps/starwars-api-reactor/pages/index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "@apollo/react-hooks":
+/*!**************************************!*\
+  !*** external "@apollo/react-hooks" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@apollo/react-hooks");
 
 /***/ }),
 
@@ -2138,14 +2231,14 @@ module.exports = require("core-js/library/fn/weak-map");
 
 /***/ }),
 
-/***/ "isomorphic-unfetch":
-/*!*************************************!*\
-  !*** external "isomorphic-unfetch" ***!
-  \*************************************/
+/***/ "graphql-tag":
+/*!******************************!*\
+  !*** external "graphql-tag" ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("isomorphic-unfetch");
+module.exports = require("graphql-tag");
 
 /***/ }),
 

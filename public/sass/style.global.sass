@@ -1,3 +1,6 @@
+* 
+  font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif
+
 html, body
   margin: 0
   padding: 0
@@ -5,6 +8,36 @@ html, body
   background-color: #000000
   font-family: Arial
   text-align: center
+
+  a
+    color: #ffffff
+    text-decoration: none
+    cursor: pointer
+  a:hover,
+  a:focus,
+  a:active,
+    color: #ffe81f
+
+  p 
+    font-size: 14px
+    line-height: 24px
+
+
+  button
+    align-items: center
+    background-color: #ffe81f
+    border: 0
+    color: white
+    display: flex
+    padding: 5px 7px
+    transition: background-color 0.3s
+
+  button:active
+    background-color: #1b9db7
+    transition: background-color 0.3s
+
+  button:focus
+    outline: none
 
   .main-container
     margin: 0
