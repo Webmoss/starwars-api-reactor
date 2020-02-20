@@ -1,0 +1,4 @@
+/**/*.test.js
+/**/*.jest.js
+/**/*.spec.js
+node_modules/*

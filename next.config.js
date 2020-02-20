@@ -2,6 +2,9 @@ const withSass = require('@zeit/next-sass');
 const withCSS = require("@zeit/next-css");
 
 module.exports = withCSS(withSass({
+  env: {
+    STARWARS_API: 'https://swapi.co/api/',
+  },
   exportPathMap: function () {
     return {
       '/': { page: '/' },

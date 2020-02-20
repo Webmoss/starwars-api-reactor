@@ -66,3 +66,11 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# OSX files
+.DS_Store
+*/**/.DS_Store
+
+# next.js build output
+.next
+.nuxt

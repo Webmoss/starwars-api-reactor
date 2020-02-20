@@ -216,8 +216,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 
 const FILMS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
-  query Films($id: ID!) {
-    Films(id: $id) {
+  {
+    films {
       id
       title
     }
@@ -19975,42 +19975,31 @@ const Index = () => {
     loading,
     error
   } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(_graphql_films_query__WEBPACK_IMPORTED_MODULE_3__["default"]);
-  console.log("Error:", error);
 
   if (error) {
-    // return "<p>Error:" + JSON.stringify(error) +"</p>";
-    if (typeof error === 'string') {
-      return error;
-    }
-
-    if (error && error.message) {
-      return error.message.replace(/GraphQL Error:/gi, '');
-    } // Handle GraphQL Errors
-
-
-    if (error && error.graphQLErrors && error.graphQLErrors.errors[0]) {
-      return error.graphQLErrors.errors[0].message.replace(/GraphQL Error:/gi, '');
-    } // Handle Request Errors
-
-
-    if (error && error.networkError && error.networkError.statusCode !== 200) {
-      switch (error.networkError.statusCode) {
-        case 400:
-          return 'Error 400 :: Not Found';
-
-        case 500:
-          return 'Error 500 : Server Error';
-
-        case 403:
-          return 'Error 403: Unauthorized';
-
-        default:
-          return `${error.networkError.statusCode} :: An error Occurred`;
-      }
-    }
+    // if (typeof error === 'string') { return error; }
+    // if (error && error.message) { return error.message.replace(/GraphQL Error:/gi, ''); }
+    // // Handle GraphQL Errors
+    // if (error && error.graphQLErrors && error.graphQLErrors.errors[0]) {
+    //   return error.graphQLErrors.errors[0].message.replace(/GraphQL Error:/gi, '');
+    // }
+    // // Handle Request Errors
+    // if (error && error.networkError && error.networkError.statusCode !== 200) {
+    //   switch(error.networkError.statusCode) {
+    //     case 400:
+    //       return 'Error 400 :: Not Found';
+    //     case 500:
+    //       return 'Error 500 : Server Error';
+    //     case 403:
+    //       return 'Error 403: Unauthorized';
+    //     default:
+    //       return `${error.networkError.statusCode} :: An error Occurred`;
+    //   }
+    // }
+    return "<p>Error:" + JSON.stringify(error) + "</p>";
   }
 
-  console.log("Loading:", loading); // This can be handled better
+  console.log("Loading:", loading); // This can be handled better in UI
 
   if (loading) {
     return "<p>Loading...</p>";
@@ -20029,7 +20018,7 @@ const Index = () => {
     className: "main"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     class: "films-intros"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, data.results.map(film => {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, data.films.map(film => {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: `film__${film.id}`
     }, film.name);
@@ -20060,7 +20049,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!**************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fcraigmoss%2FApps%2Fstarwars-api-reactor%2Fpages%2Findex.js ***!
   \**************************************************************************************************************************************/
@@ -20083,5 +20072,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map
