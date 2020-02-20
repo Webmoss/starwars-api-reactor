@@ -342,13 +342,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 
 const FILMS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
-  {
+  query Films {
     films {
       id
+      episodeId
       title
+      director
+      producers
+      releaseDate
+      openingCrawl
+      characters {
+        name
+        gender
+      }
+      planets { 
+        name
+      }
+      species{
+        name
+      }
+      starships{
+        name
+      }
+      vehicles{
+        name
+      }
     }
   }
-`;
+`; // console.log("FILMS_QUERY", FILMS_QUERY);
+
 /* harmony default export */ __webpack_exports__["default"] = (FILMS_QUERY);
 
 /***/ }),
@@ -2037,12 +2059,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _graphql_films_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../graphql/films.query */ "./graphql/films.query.js");
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _graphql_films_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../graphql/films.query */ "./graphql/films.query.js");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
+
 
 
 
@@ -2056,38 +2081,48 @@ const Index = () => {
     data,
     loading,
     error
-  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(_graphql_films_query__WEBPACK_IMPORTED_MODULE_3__["default"]);
+  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_graphql_films_query__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
   if (error) {
-    // if (typeof error === 'string') { return error; }
-    // if (error && error.message) { return error.message.replace(/GraphQL Error:/gi, ''); }
-    // // Handle GraphQL Errors
-    // if (error && error.graphQLErrors && error.graphQLErrors.errors[0]) {
-    //   return error.graphQLErrors.errors[0].message.replace(/GraphQL Error:/gi, '');
-    // }
-    // // Handle Request Errors
-    // if (error && error.networkError && error.networkError.statusCode !== 200) {
-    //   switch(error.networkError.statusCode) {
-    //     case 400:
-    //       return 'Error 400 :: Not Found';
-    //     case 500:
-    //       return 'Error 500 : Server Error';
-    //     case 403:
-    //       return 'Error 403: Unauthorized';
-    //     default:
-    //       return `${error.networkError.statusCode} :: An error Occurred`;
-    //   }
-    // }
-    return "<p>Error:" + JSON.stringify(error) + "</p>";
-  }
+    if (typeof error === 'string') {
+      return error;
+    }
 
-  console.log("Loading:", loading); // This can be handled better in UI
+    if (error && error.message) {
+      return error.message.replace(/GraphQL Error:/gi, '');
+    } // Handle GraphQL Errors
+
+
+    if (error && error.graphQLErrors && error.graphQLErrors.errors[0]) {
+      return error.graphQLErrors.errors[0].message.replace(/GraphQL Error:/gi, '');
+    } // Handle Request Errors
+
+
+    if (error && error.networkError && error.networkError.statusCode !== 200) {
+      switch (error.networkError.statusCode) {
+        case 400:
+          return 'Error 400 :: Not Found';
+
+        case 500:
+          return 'Error 500 : Server Error';
+
+        case 403:
+          return 'Error 403: Unauthorized';
+
+        default:
+          return `${error.networkError.statusCode} :: An error Occurred`;
+      }
+    }
+
+    return "<p>Error:" + JSON.stringify(error) + "</p>";
+  } // This can be handled better in UI
+
 
   if (loading) {
     return "<p>Loading...</p>";
-  }
+  } // console.log("Data:", data)
 
-  console.log("Data:", data);
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "app"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "Star Wars API Reactor - BUIDL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -2098,21 +2133,25 @@ const Index = () => {
     href: "/favicon.ico"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     className: "main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    class: "films-intros"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "films-intro"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, data.films.map(film => {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: `film__${film.id}`
-    }, film.name);
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      href: {
+        pathname: '/films',
+        query: {
+          id: film.episodeId
+        }
+      }
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, film.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "director"
+    }, film.director), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "director"
+    }, film.director));
   }))))));
-}; // Index.getInitialProps = async function() {
-//   const res = await fetch('https://swapi.co/api/films');
-//   const data = await res.json();
-//   return {
-//     films: data.results.map(result => result)
-//   };
-// };
-
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
 

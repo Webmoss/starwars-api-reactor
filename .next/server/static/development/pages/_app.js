@@ -455,7 +455,8 @@ __webpack_require__.r(__webpack_exports__);
 
  // Update the GraphQL endpoint to any instance of GraphQL that you like
 
-const GRAPHQL_URL = `${"https://swapi.co/api/"}films`;
+const GRAPHQL_URL = 'https://api-euwest.graphcms.com/v1/ck5wca13qc9ux01fgaidt12m4/master'; // const GRAPHQL_URL = `${process.env.STARWARS_API}films`;
+
 const link = Object(apollo_link_http__WEBPACK_IMPORTED_MODULE_1__["createHttpLink"])({
   fetch: (isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default()),
   // Switches between unfetch & node-fetch for client & server.
@@ -469,6 +470,9 @@ const link = Object(apollo_link_http__WEBPACK_IMPORTED_MODULE_1__["createHttpLin
   initialState
 }) => new apollo_client__WEBPACK_IMPORTED_MODULE_0__["ApolloClient"]({
   link: link,
+  fetchOptions: {
+    mode: 'no-cors'
+  },
   cache: new apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["InMemoryCache"]() //  rehydrate the cache using the initial data passed from the server:
   .restore(initialState || {})
 })));
