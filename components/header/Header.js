@@ -17,11 +17,6 @@ const Header = () => (
           </Link>
         </li>
         <li>
-          <Link href={{ pathname: '/about' }}>
-            <a title="About Star Wars">About</a>
-          </Link>
-        </li>
-        <li>
           <Link href={{ pathname: '/films', query: { id: undefined } }}>
             <a title="Films Page">Films</a>
           </Link>
