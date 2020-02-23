@@ -93,6 +93,56 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./enhancers/monitorReducer.js":
+/*!*************************************!*\
+  !*** ./enhancers/monitorReducer.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const round = number => Math.round(number * 100) / 100;
+
+const monitorReducerEnhancer = createStore => (reducer, initialState, enhancer) => {
+  const monitoredReducer = (state, action) => {
+    const start = performance.now();
+    const newState = reducer(state, action);
+    const end = performance.now();
+    const diff = round(end - start);
+    console.log('reducer process time:', diff);
+    return newState;
+  };
+
+  return createStore(monitoredReducer, initialState, enhancer);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (monitorReducerEnhancer);
+
+/***/ }),
+
+/***/ "./middleware/logger.js":
+/*!******************************!*\
+  !*** ./middleware/logger.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const logger = store => next => action => {
+  console.group(action.type);
+  console.info('dispatching', action);
+  let result = next(action);
+  console.log('next state', store.getState());
+  console.groupEnd();
+  return result;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (logger);
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js ***!
@@ -420,6 +470,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
+  static async getInitialProps({
+    Component,
+    ctx
+  }) {
+    // We can dispatch from here too
+    ctx.store.dispatch({
+      type: 'filmActionTypes.FILMS',
+      payload: 'films'
+    });
+    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+    return {
+      pageProps
+    };
+  }
+
   render() {
     const {
       Component,
@@ -506,7 +571,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "redux-thunk");
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _films_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./films/reducer */ "./store/films/reducer.js");
+/* harmony import */ var _middleware_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../middleware/logger */ "./middleware/logger.js");
+/* harmony import */ var _enhancers_monitorReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enhancers/monitorReducer */ "./enhancers/monitorReducer.js");
+/* harmony import */ var _films_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./films/reducer */ "./store/films/reducer.js");
+
+
 
 
 
@@ -524,8 +593,13 @@ const bindMiddleware = middleware => {
 };
 
 const initStore = () => {
+  const middlewares = [_middleware_logger__WEBPACK_IMPORTED_MODULE_2__["default"], redux_thunk__WEBPACK_IMPORTED_MODULE_1___default.a];
+  const middlewareEnhancer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(...middlewares);
+  const enhancers = [middlewareEnhancer, _enhancers_monitorReducer__WEBPACK_IMPORTED_MODULE_3__["default"]];
+  const composedEnhancers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["compose"])(...enhancers); // WIP - Not sure where the composedEnhancers should go
+
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-    films: _films_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+    films: _films_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), bindMiddleware([redux_thunk__WEBPACK_IMPORTED_MODULE_1___default.a]));
 };
 

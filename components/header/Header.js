@@ -17,38 +17,33 @@ const Header = () => (
           </Link>
         </li>
         <li>
-          <Link href={{ pathname: '/films', query: { id: undefined } }}>
+          <Link href={{ pathname: '/films'}}>
             <a title="Films Page">Films</a>
           </Link>
         </li>
         <li>
-          <Link href={{ pathname: '/people', query: { id: undefined } }}>
+          <Link href={{ pathname: '/people'}}>
             <a title="People Page">People</a>
           </Link>
         </li>
         <li>
-          <Link href={{ pathname: '/films', query: { id: undefined } }}>
-            <a title="Films Page">Films</a>
+          <Link href={{ pathname: '/planets'}}>
+            <a title="Planets Page">Planets</a>
           </Link>
         </li>
         <li>
-          <Link href={{ pathname: '/species', query: { id: undefined } }}>
+          <Link href={{ pathname: '/species'}}>
             <a title="Species Page">Species</a>
           </Link>
         </li>
         <li>
-          <Link href={{ pathname: '/starships', query: { id: undefined } }}>
+          <Link href={{ pathname: '/starships'}}>
             <a title="Starships Page">Starships</a>
           </Link>
         </li>
         <li>
-          <Link href={{ pathname: '/vehicles', query: { id: undefined } }}>
+          <Link href={{ pathname: '/vehicles'}}>
             <a title="Vehicles Page">Vehicles</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={{ pathname: '/planets', query: { id: undefined } }}>
-            <a title="Planets Page">Planets</a>
           </Link>
         </li>
       </ul>

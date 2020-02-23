@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-
 // Apollo  Client
 import { useQuery } from '@apollo/react-hooks';
 import FILMS_QUERY from '../graphql/films.query';
-
 // Redux Store
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { loadFilms } from '../store/films/action';
-
+// 3rd Party
+import moment from "moment"
 // Look & Feel
 import '../public/sass/style.global.sass';
 import Layout from '../components/Layout';
@@ -21,9 +20,11 @@ const styling = {
   height:"100%"
 }
 
-
 const Index = (props) => {
-  // Create a query hook
+
+  console.log("Props: ", props)
+
+  // Create a query hook for Films
   const { data, loading, error } = useQuery(FILMS_QUERY);
 
   // Error Handling for useQuery to GraphQl API
@@ -57,20 +58,6 @@ const Index = (props) => {
 
   console.log("Data:", data.films)
 
-  // Set our Films State in the Store
-  // const films = useState(data.films);
-
-  // // Similar to componentDidMount and componentDidUpdate:
-  // useEffect(() => {
-  //   // Do something on render of Component
-  //   // document.title = `You clicked ${count} times`;
-  //   console.log("useEffect Loaded");
-  //   console.log("loadFilms: ", ourFilms);
-  //   // Can load the rest of the Store after loading Films for Performance
-
-  // });
-
-
   return (
     <div className="app">
       <Head>
@@ -96,12 +83,12 @@ const Index = (props) => {
                     <a>{film.title}</a>
                   </Link> 
                   <br></br>
-                  <span className="film-detail">Director: {film.director}</span><br></br>
-                  <span className="film-detail">Release Date: {film.releaseDate}</span><br></br>
+                  <span className="film-detail"><strong>Director:</strong> {film.director}</span><br></br>
+                  <span className="film-detail"><strong>Released:</strong> {moment(film.releaseDate).format('DD/MM/YYYY')}</span><br></br>
                   {/* Arrays */}
-                  {/* <span className="film-detail">Producers: {film.producer}</span><br></br><br></br>
+                  {/* <span className="film-detail">Producers: {film.producer}</span><br></br>
                   <span className="director">Planets: {film.planets}</span><br></br>
-                  <span className="director">Species: {film.species}</span><br></br><br></br>
+                  <span className="director">Species: {film.species}</span><br></br>
                   <span className="director">Starships: {film.starships}</span><br></br>
                   <span className="director">Vehicles: {film.vehicles}</span><br></br> */}
                 </li>;
@@ -120,9 +107,11 @@ Index.getInitialProps = async ({ store, isServer }) => {
   return { isServer }
 }
 
-const mapStateToProps = state => ({
-  films: state.films,
-});
+const mapStateToProps = (state, props) => {
+  return {
+    films: loadFilms(state.films, props)
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -130,4 +119,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

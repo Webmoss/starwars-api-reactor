@@ -8,6 +8,13 @@ import { initStore } from '../store/store';
 
 
 class MyApp extends App {
+  static async getInitialProps({Component, ctx}) {
+    // We can dispatch from here too
+    ctx.store.dispatch({type: 'filmActionTypes.FILMS', payload: 'films'});
+    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+    return {pageProps};
+  }
+
   render() {
     const { Component, pageProps, apollo, store } = this.props;
     return (

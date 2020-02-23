@@ -198,68 +198,41 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
   title: "Home"
 }, "Home"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
-    pathname: '/films',
-    query: {
-      id: undefined
-    }
+    pathname: '/films'
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
   title: "Films Page"
 }, "Films"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
-    pathname: '/people',
-    query: {
-      id: undefined
-    }
+    pathname: '/people'
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
   title: "People Page"
 }, "People"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
-    pathname: '/films',
-    query: {
-      id: undefined
-    }
+    pathname: '/planets'
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "Films Page"
-}, "Films"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  title: "Planets Page"
+}, "Planets"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
-    pathname: '/species',
-    query: {
-      id: undefined
-    }
+    pathname: '/species'
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
   title: "Species Page"
 }, "Species"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
-    pathname: '/starships',
-    query: {
-      id: undefined
-    }
+    pathname: '/starships'
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
   title: "Starships Page"
 }, "Starships"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: {
-    pathname: '/vehicles',
-    query: {
-      id: undefined
-    }
+    pathname: '/vehicles'
   }
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
   title: "Vehicles Page"
-}, "Vehicles"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  href: {
-    pathname: '/planets',
-    query: {
-      id: undefined
-    }
-  }
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-  title: "Planets Page"
-}, "Planets"))))));
+}, "Vehicles"))))));
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
@@ -2016,10 +1989,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _store_films_action__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/films/action */ "./store/films/action.js");
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
-/* harmony import */ var _public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../public/images/twinkle.gif */ "./public/images/twinkle.gif");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
+/* harmony import */ var _public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../public/images/twinkle.gif */ "./public/images/twinkle.gif");
 
 
  // Apollo  Client
@@ -2029,19 +2004,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // 3rd Party
+
  // Look & Feel
 
 
 
 
 const styling = {
-  backgroundImage: `url('${_public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_10__["default"]}')`,
+  backgroundImage: `url('${_public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_11__["default"]}')`,
   backgroundRepeat: "repeat",
   height: "100%"
 };
 
 const Index = props => {
-  // Create a query hook
+  console.log("Props: ", props); // Create a query hook for Films
+
   const {
     data,
     loading,
@@ -2087,17 +2065,7 @@ const Index = props => {
     return "<p>Loading...</p>";
   }
 
-  console.log("Data:", data.films); // Set our Films State in the Store
-  // const films = useState(data.films);
-  // // Similar to componentDidMount and componentDidUpdate:
-  // useEffect(() => {
-  //   // Do something on render of Component
-  //   // document.title = `You clicked ${count} times`;
-  //   console.log("useEffect Loaded");
-  //   console.log("loadFilms: ", ourFilms);
-  //   // Can load the rest of the Store after loading Films for Performance
-  // });
-
+  console.log("Data:", data.films);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "app"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -2109,7 +2077,7 @@ const Index = props => {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     className: "main",
     style: styling
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_9__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_10__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "films-intro"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, data.films.map(film => {
     // Load static images based on the title of the film                
@@ -2131,9 +2099,9 @@ const Index = props => {
       as: `/films/${film.episodeId}`
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, film.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "film-detail"
-    }, "Director: ", film.director), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Director:"), " ", film.director), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "film-detail"
-    }, "Release Date: ", film.releaseDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Released:"), " ", moment__WEBPACK_IMPORTED_MODULE_8___default()(film.releaseDate).format('DD/MM/YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
   }))))));
 }; // Load the films if isServer side request
 
@@ -2148,9 +2116,11 @@ Index.getInitialProps = async ({
   };
 };
 
-const mapStateToProps = state => ({
-  films: state.films
-});
+const mapStateToProps = (state, props) => {
+  return {
+    films: Object(_store_films_action__WEBPACK_IMPORTED_MODULE_7__["loadFilms"])(state.films, props)
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -2158,7 +2128,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(null, mapDispatchToProps)(Index));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(mapStateToProps, mapDispatchToProps)(Index));
 
 /***/ }),
 
@@ -2294,6 +2264,17 @@ module.exports = require("core-js/library/fn/weak-map");
 /***/ (function(module, exports) {
 
 module.exports = require("graphql-tag");
+
+/***/ }),
+
+/***/ "moment":
+/*!*************************!*\
+  !*** external "moment" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("moment");
 
 /***/ }),
 
