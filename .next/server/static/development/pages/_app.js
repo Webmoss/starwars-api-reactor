@@ -406,6 +406,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _utils_apollo_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/apollo-client */ "./utils/apollo-client.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../store/store */ "./store/store.js");
+
+
+
 
 
 
@@ -416,17 +424,110 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
     const {
       Component,
       pageProps,
-      apollo
+      apollo,
+      store
     } = this.props;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["ApolloProvider"], {
       client: apollo
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, pageProps));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
+      store: store
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, pageProps)));
   }
 
-} // Wraps all components in the tree with the data provider
+} // Wraps all components in the tree with the data provider then
+// Wraps all components in the tree with the Redux Provider
 
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_utils_apollo_client__WEBPACK_IMPORTED_MODULE_3__["default"])(MyApp));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_utils_apollo_client__WEBPACK_IMPORTED_MODULE_3__["default"])(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5___default()(_store_store__WEBPACK_IMPORTED_MODULE_6__["initStore"])(MyApp)));
+
+/***/ }),
+
+/***/ "./store/films/action.js":
+/*!*******************************!*\
+  !*** ./store/films/action.js ***!
+  \*******************************/
+/*! exports provided: filmActionTypes, loadFilms */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filmActionTypes", function() { return filmActionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadFilms", function() { return loadFilms; });
+const filmActionTypes = {
+  FILMS: 'FILMS'
+};
+const loadFilms = () => dispatch => {
+  return dispatch({
+    type: filmActionTypes.FILMS
+  });
+};
+
+/***/ }),
+
+/***/ "./store/films/reducer.js":
+/*!********************************!*\
+  !*** ./store/films/reducer.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action */ "./store/films/action.js");
+
+const filmInitialState = {
+  films: {}
+};
+/* harmony default export */ __webpack_exports__["default"] = ((state = filmInitialState, action) => {
+  switch (action.type) {
+    case _action__WEBPACK_IMPORTED_MODULE_0__["filmActionTypes"].FILMS:
+      return Object.assign({}, state, {
+        films: state.films
+      });
+
+    default:
+      return state;
+  }
+});
+
+/***/ }),
+
+/***/ "./store/store.js":
+/*!************************!*\
+  !*** ./store/store.js ***!
+  \************************/
+/*! exports provided: initStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initStore", function() { return initStore; });
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "redux-thunk");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _films_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./films/reducer */ "./store/films/reducer.js");
+
+
+
+
+const bindMiddleware = middleware => {
+  if (true) {
+    const {
+      composeWithDevTools
+    } = __webpack_require__(/*! redux-devtools-extension */ "redux-devtools-extension");
+
+    return composeWithDevTools(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(...middleware));
+  }
+
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(...middleware);
+};
+
+const initStore = () => {
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+    films: _films_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }), bindMiddleware([redux_thunk__WEBPACK_IMPORTED_MODULE_1___default.a]));
+};
 
 /***/ }),
 
@@ -546,6 +647,17 @@ module.exports = require("isomorphic-unfetch");
 
 /***/ }),
 
+/***/ "next-redux-wrapper":
+/*!*************************************!*\
+  !*** external "next-redux-wrapper" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-redux-wrapper");
+
+/***/ }),
+
 /***/ "next-with-apollo":
 /*!***********************************!*\
   !*** external "next-with-apollo" ***!
@@ -565,6 +677,50 @@ module.exports = require("next-with-apollo");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+
+/***/ "redux-devtools-extension":
+/*!*******************************************!*\
+  !*** external "redux-devtools-extension" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-devtools-extension");
+
+/***/ }),
+
+/***/ "redux-thunk":
+/*!******************************!*\
+  !*** external "redux-thunk" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-thunk");
 
 /***/ }),
 

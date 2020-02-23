@@ -1,31 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+
+// Apollo  Client
 import { useQuery } from '@apollo/react-hooks';
 import FILMS_QUERY from '../graphql/films.query';
+
+// Redux Store
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { loadFilms } from '../store/films/action';
+
+// Look & Feel
 import '../public/sass/style.global.sass';
 import Layout from '../components/Layout';
 import BG from '../public/images/twinkle.gif';
-
 const styling = {
   backgroundImage: `url('${BG}')`,
   backgroundRepeat:"repeat",
   height:"100%"
 }
 
-const Index = () => {
+
+const Index = (props) => {
   // Create a query hook
   const { data, loading, error } = useQuery(FILMS_QUERY);
 
+  // Error Handling for useQuery to GraphQl API
   if (error) {
     if (typeof error === 'string') { return error; }
     if (error && error.message) { return error.message.replace(/GraphQL Error:/gi, ''); }
-
     // Handle GraphQL Errors
     if (error && error.graphQLErrors && error.graphQLErrors.errors[0]) {
       return error.graphQLErrors.errors[0].message.replace(/GraphQL Error:/gi, '');
     }
-
     // Handle Request Errors
     if (error && error.networkError && error.networkError.statusCode !== 200) {
       switch(error.networkError.statusCode) {
@@ -47,7 +55,21 @@ const Index = () => {
     return "<p>Loading...</p>";
   }
 
-  console.log("Data:", data)
+  console.log("Data:", data.films)
+
+  // Set our Films State in the Store
+  // const films = useState(data.films);
+
+  // // Similar to componentDidMount and componentDidUpdate:
+  // useEffect(() => {
+  //   // Do something on render of Component
+  //   // document.title = `You clicked ${count} times`;
+  //   console.log("useEffect Loaded");
+  //   console.log("loadFilms: ", ourFilms);
+  //   // Can load the rest of the Store after loading Films for Performance
+
+  // });
+
 
   return (
     <div className="app">
@@ -63,8 +85,8 @@ const Index = () => {
             <ul>
               {data.films.map(film => {
                 
+                // Load static images based on the title of the film                
                 let imgURL = `/images/${film.title.split(' ').join('_')}.png`;
-                console.log("imgURL:", imgURL)
                 
                 return <li key={`film__${film.episodeId}`} className="film-title">
                   <Link href="/films/[episode_id]" as={`/films/${film.episodeId}`}>
@@ -92,4 +114,20 @@ const Index = () => {
   )
 };
 
-export default Index;
+// Load the films if isServer side request
+Index.getInitialProps = async ({ store, isServer }) => {
+  store.dispatch(loadFilms(isServer))
+  return { isServer }
+}
+
+const mapStateToProps = state => ({
+  films: state.films,
+});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadFilms: bindActionCreators(loadFilms, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Index);

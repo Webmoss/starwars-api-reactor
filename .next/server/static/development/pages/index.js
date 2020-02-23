@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -107,9 +107,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
 /* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _header_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header/Header */ "./components/header/Header.js");
-/* harmony import */ var _slider_Slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slider/Slider */ "./components/slider/Slider.js");
-/* harmony import */ var _footer_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./footer/Footer */ "./components/footer/Footer.js");
-
+/* harmony import */ var _footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./footer/Footer */ "./components/footer/Footer.js");
 
 
 
@@ -117,7 +115,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const Layout = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "main-container"
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), props.children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), props.children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
 
@@ -270,51 +268,6 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
 /***/ "./components/header/styles.sass":
 /*!***************************************!*\
   !*** ./components/header/styles.sass ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./components/slider/Slider.js":
-/*!*************************************!*\
-  !*** ./components/slider/Slider.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.sass */ "./components/slider/styles.sass");
-/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_sass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _public_images_star_wars_banner_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../public/images/star-wars-banner.jpg */ "./public/images/star-wars-banner.jpg");
-
-
-
-
-const Slider = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  className: "slider"
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "This is Slider content"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
-  jsx: "true"
-}, `
-      .slider {
-        background: url('public/images/star-wars-banner.jpg') no-repeat;
-        background-position: center;
-        background-size: cover;
-      }
-    `));
-
-/* harmony default export */ __webpack_exports__["default"] = (Slider);
-
-/***/ }),
-
-/***/ "./components/slider/styles.sass":
-/*!***************************************!*\
-  !*** ./components/slider/styles.sass ***!
   \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -2058,31 +2011,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _graphql_films_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../graphql/films.query */ "./graphql/films.query.js");
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
-/* harmony import */ var _public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../public/images/twinkle.gif */ "./public/images/twinkle.gif");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _store_films_action__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/films/action */ "./store/films/action.js");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
+/* harmony import */ var _public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../public/images/twinkle.gif */ "./public/images/twinkle.gif");
+
+
+ // Apollo  Client
+
+
+ // Redux Store
 
 
 
-
+ // Look & Feel
 
 
 
 
 const styling = {
-  backgroundImage: `url('${_public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_7__["default"]}')`,
+  backgroundImage: `url('${_public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_10__["default"]}')`,
   backgroundRepeat: "repeat",
   height: "100%"
 };
 
-const Index = () => {
+const Index = props => {
   // Create a query hook
   const {
     data,
     loading,
     error
-  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_graphql_films_query__WEBPACK_IMPORTED_MODULE_4__["default"]);
+  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_graphql_films_query__WEBPACK_IMPORTED_MODULE_4__["default"]); // Error Handling for useQuery to GraphQl API
 
   if (error) {
     if (typeof error === 'string') {
@@ -2123,7 +2087,17 @@ const Index = () => {
     return "<p>Loading...</p>";
   }
 
-  console.log("Data:", data);
+  console.log("Data:", data.films); // Set our Films State in the Store
+  // const films = useState(data.films);
+  // // Similar to componentDidMount and componentDidUpdate:
+  // useEffect(() => {
+  //   // Do something on render of Component
+  //   // document.title = `You clicked ${count} times`;
+  //   console.log("useEffect Loaded");
+  //   console.log("loadFilms: ", ourFilms);
+  //   // Can load the rest of the Store after loading Films for Performance
+  // });
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "app"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -2135,11 +2109,11 @@ const Index = () => {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     className: "main",
     style: styling
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_9__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "films-intro"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, data.films.map(film => {
+    // Load static images based on the title of the film                
     let imgURL = `/images/${film.title.split(' ').join('_')}.png`;
-    console.log("imgURL:", imgURL);
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: `film__${film.episodeId}`,
       className: "film-title"
@@ -2161,22 +2135,30 @@ const Index = () => {
       className: "film-detail"
     }, "Release Date: ", film.releaseDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
   }))))));
+}; // Load the films if isServer side request
+
+
+Index.getInitialProps = async ({
+  store,
+  isServer
+}) => {
+  store.dispatch(Object(_store_films_action__WEBPACK_IMPORTED_MODULE_7__["loadFilms"])(isServer));
+  return {
+    isServer
+  };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Index);
+const mapStateToProps = state => ({
+  films: state.films
+});
 
-/***/ }),
+const mapDispatchToProps = dispatch => {
+  return {
+    loadFilms: Object(redux__WEBPACK_IMPORTED_MODULE_5__["bindActionCreators"])(_store_films_action__WEBPACK_IMPORTED_MODULE_7__["loadFilms"], dispatch)
+  };
+};
 
-/***/ "./public/images/star-wars-banner.jpg":
-/*!********************************************!*\
-  !*** ./public/images/star-wars-banner.jpg ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "d5be36de7a5513e6f8e2508ae0d16809.jpg");
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(null, mapDispatchToProps)(Index));
 
 /***/ }),
 
@@ -2204,7 +2186,29 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 3:
+/***/ "./store/films/action.js":
+/*!*******************************!*\
+  !*** ./store/films/action.js ***!
+  \*******************************/
+/*! exports provided: filmActionTypes, loadFilms */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filmActionTypes", function() { return filmActionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadFilms", function() { return loadFilms; });
+const filmActionTypes = {
+  FILMS: 'FILMS'
+};
+const loadFilms = () => dispatch => {
+  return dispatch({
+    type: filmActionTypes.FILMS
+  });
+};
+
+/***/ }),
+
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -2345,6 +2349,28 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-is");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
 
 /***/ }),
 
