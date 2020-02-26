@@ -1995,6 +1995,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
 /* harmony import */ var _public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../public/images/twinkle.gif */ "./public/images/twinkle.gif");
+/* harmony import */ var _utils_formatIt__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils/formatIt */ "./utils/formatIt.js");
 
 
  // Apollo  Client
@@ -2007,6 +2008,7 @@ __webpack_require__.r(__webpack_exports__);
  // 3rd Party
 
  // Look & Feel
+
 
 
 
@@ -2055,7 +2057,8 @@ const Index = props => {
         default:
           return `${error.networkError.statusCode} :: An error Occurred`;
       }
-    }
+    } // Safety Net
+
 
     return "<p>Error:" + JSON.stringify(error) + "</p>";
   } // This can be handled better in UI
@@ -2101,7 +2104,9 @@ const Index = props => {
       className: "film-detail"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Director:"), " ", film.director), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "film-detail"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Released:"), " ", moment__WEBPACK_IMPORTED_MODULE_8___default()(film.releaseDate).format('DD/MM/YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Released:"), " ", moment__WEBPACK_IMPORTED_MODULE_8___default()(film.releaseDate).format('DD/MM/YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "film-crawl"
+    }, film.openingCrawl.replace(/<[/]?[pb]>/g, '')));
   }))))));
 }; // Load the films if isServer side request
 
@@ -2175,6 +2180,41 @@ const loadFilms = () => dispatch => {
     type: filmActionTypes.FILMS
   });
 };
+
+/***/ }),
+
+/***/ "./utils/formatIt.js":
+/*!***************************!*\
+  !*** ./utils/formatIt.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (value => {
+  const formatted = [];
+
+  if (Object(lodash__WEBPACK_IMPORTED_MODULE_0__["isObject"])(value) && Object.keys(value).length > 0) {
+    console.log("Object Value:", value);
+
+    for (let key in value) {
+      formatted.push(value[key]);
+    }
+
+    return formatted.join(', ');
+  } else if (Object(lodash__WEBPACK_IMPORTED_MODULE_0__["isArray"])(value) && value.length > 0) {
+    return value.join(', ');
+  } else if (Object(lodash__WEBPACK_IMPORTED_MODULE_0__["isString"])(value) && value.length > 0) {
+    const joined = value.split(',');
+    return joined.join(', ');
+  } else {
+    return '';
+  }
+});
 
 /***/ }),
 
@@ -2264,6 +2304,17 @@ module.exports = require("core-js/library/fn/weak-map");
 /***/ (function(module, exports) {
 
 module.exports = require("graphql-tag");
+
+/***/ }),
+
+/***/ "lodash":
+/*!*************************!*\
+  !*** external "lodash" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("lodash");
 
 /***/ }),
 

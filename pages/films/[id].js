@@ -18,17 +18,16 @@ const Film = props => (
     </Head>
     <main className="main" style={styling}>
       <h1>{props.film.title}</h1>
+      <p className="film-crawl">{props.film.opening_crawl.replace(/<[/]?[pb]>/g, '')}</p>
       <p>
         Director: {props.film.director}<br></br>
         Producers: {props.film.producer}<br></br>
         Release Date: {props.film.releaseDate}<br></br>
-        {/* Arrays */}
-        {/* Planets: {props.film.planets}<br></br>
-        Species: {props.film.species}<br></br><br></br>
-        Starships: {props.film.starships}<br></br>
-        Vehicles: {props.film.vehicles}<br></br> */}
+        Planets: {props.film.planets.join(', ')}<br></br>
+        Species: {props.film.species.join(', ')}<br></br><br></br>
+        Starships: {props.film.starships.join(', ')}<br></br>
+        Vehicles: {props.film.vehicles.join(', ')}<br></br>
       </p>
-      <p>{props.film.opening_crawl.replace(/<[/]?[pb]>/g, '')}</p>
     </main>
   </Layout>
 );

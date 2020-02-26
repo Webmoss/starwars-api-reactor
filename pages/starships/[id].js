@@ -30,9 +30,8 @@ const Starships = props => (
         Cost In Credits: {props.starship.cost_in_credits}<br></br>
         MGLT: {props.starship.MGLT}<br></br>
         Hyperdrive Rating: {props.starship.hyperdrive_rating}<br></br>
-        {/* Arrays */}
-        {/* Pilots: {props.starship.pilots}
-        Films: {props.starship.films} */}
+        Pilots: {props.starship.pilots.join(', ')}
+        Films: {props.starship.films.join(', ')}
       </p>
     </main>
   </Layout>

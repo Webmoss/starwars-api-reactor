@@ -27,9 +27,8 @@ const Planets = props => (
         Rotation Period: {props.planet.rotation_period}<br></br>
         Surface Water: {props.planet.surface_water}<br></br>
         Terrain: {props.planet.terrain}<br></br>
-        {/* Arrays */}
-        {/* Residents: {props.planet.people}<br></br>
-        Films: {props.planet.films}<br></br> */}
+        Residents: {props.planet.people.join(', ')}<br></br>
+        Films: {props.planet.films.join(', ')}<br></br>
       </p>
     </main>
   </Layout>

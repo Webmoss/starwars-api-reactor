@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 // Apollo  Client
@@ -14,6 +14,7 @@ import moment from "moment"
 import '../public/sass/style.global.sass';
 import Layout from '../components/Layout';
 import BG from '../public/images/twinkle.gif';
+import formatIt from '../utils/formatIt';
 const styling = {
   backgroundImage: `url('${BG}')`,
   backgroundRepeat:"repeat",
@@ -48,6 +49,7 @@ const Index = (props) => {
           return `${error.networkError.statusCode} :: An error Occurred`;
       }
     }
+    // Safety Net
     return "<p>Error:" + JSON.stringify(error) +"</p>";
   }
   
@@ -68,10 +70,11 @@ const Index = (props) => {
       <main className="main" style={styling}>
         <Layout>
           <h1>Star Wars API Reactor</h1>
+
           <div className="films-intro">
             <ul>
               {data.films.map(film => {
-                
+
                 // Load static images based on the title of the film                
                 let imgURL = `/images/${film.title.split(' ').join('_')}.png`;
                 
@@ -83,18 +86,21 @@ const Index = (props) => {
                     <a>{film.title}</a>
                   </Link> 
                   <br></br>
-                  <span className="film-detail"><strong>Director:</strong> {film.director}</span><br></br>
-                  <span className="film-detail"><strong>Released:</strong> {moment(film.releaseDate).format('DD/MM/YYYY')}</span><br></br>
-                  {/* Arrays */}
-                  {/* <span className="film-detail">Producers: {film.producer}</span><br></br>
-                  <span className="director">Planets: {film.planets}</span><br></br>
-                  <span className="director">Species: {film.species}</span><br></br>
-                  <span className="director">Starships: {film.starships}</span><br></br>
-                  <span className="director">Vehicles: {film.vehicles}</span><br></br> */}
+                  <span className="film-detail"><strong>Director:</strong> { film.director }</span><br></br>
+                  <span className="film-detail"><strong>Released:</strong> { moment(film.releaseDate).format('DD/MM/YYYY') }</span><br></br>
+                  <p className="film-crawl">{ film.openingCrawl.replace(/<[/]?[pb]>/g, '') }</p>
+                  
+                  {/* WIP */}
+                  {/* <span className="film-detail">Producers: { formatIt(film.producer) }</span><br></br>
+                  <span className="film-detail">Planets: { formatIt(film.planets) }</span><br></br>
+                  <span className="film-detail">Species: { formatIt(film.species) }</span><br></br>
+                  <span className="film-detail">Starships: { formatIt(film.starships) }</span><br></br>
+                  <span className="film-detail">Vehicles: { formatIt(film.vehicles) }</span><br></br> */}
                 </li>;
               })}
             </ul>
           </div>
+
         </Layout>
       </main>
     </div>

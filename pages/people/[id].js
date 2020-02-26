@@ -27,11 +27,10 @@ const People = props => (
         Homeworld: {props.people.homeworld}<br></br>
         Mass: {props.people.mass}<br></br>
         Skin Color: {props.people.skin_color}<br></br>
-        {/* Arrays */}
-        {/* Species: {props.people.species}
-        Starships: {props.people.starships}
-        Vehicles: {props.people.vehicles}
-        Films: {props.people.films} */}
+        Species: {props.people.species.join(', ')}
+        Starships: {props.people.starships.join(', ')}
+        Vehicles: {props.people.vehicles.join(', ')}
+        Films: {props.people.films.join(', ')}
       </p>
     </main>
   </Layout>

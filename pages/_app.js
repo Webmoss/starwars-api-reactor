@@ -1,7 +1,9 @@
 import React from 'react';
 import App from 'next/app';
+
 import { ApolloProvider } from '@apollo/react-hooks';
 import withData from '../utils/apollo-client';
+
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store/store';

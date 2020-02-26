@@ -3,5 +3,5 @@ export const filmActionTypes = {
 }
 
 export const loadFilms = () => dispatch => {
-  return dispatch({ type: filmActionTypes.FILMS })
+  return dispatch( { type: filmActionTypes.FILMS } )
 }

@@ -27,9 +27,8 @@ const Species = props => (
         Eye Colors: {props.specie.eye_colors}<br></br>
         Hair Colors: {props.specie.hair_colors}<br></br>
         Skin Colors: {props.specie.skin_colors}<br></br>
-        {/* Arrays */}
-        {/* People: {props.specie.people}
-        Films: {props.specie.films} */}
+        People: {props.specie.people.join(', ')}
+        Films: {props.specie.films.join(', ')}
       </p>
     </main>
   </Layout>
