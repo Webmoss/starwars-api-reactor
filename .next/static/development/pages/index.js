@@ -134,6 +134,45 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
 
 /***/ }),
 
+/***/ "./components/rating/Rating.js":
+/*!*************************************!*\
+  !*** ./components/rating/Rating.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.sass */ "./components/rating/styles.sass");
+/* harmony import */ var _styles_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_sass__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+const Rating = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "rating"
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  title: "Terrible",
+  className: "terrible"
+}, "*")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  title: "Bad",
+  className: "bad"
+}, "*")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  title: "Good",
+  className: "good"
+}, "*")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  title: "Great",
+  className: "great"
+}, "*")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  title: "Fantastic",
+  className: "fantastic"
+}, "*"))));
+
+/* harmony default export */ __webpack_exports__["default"] = (Rating);
+
+/***/ }),
+
 /***/ "./graphql/films.query.js":
 /*!********************************!*\
   !*** ./graphql/films.query.js ***!
@@ -57413,18 +57452,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var _graphql_films_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../graphql/films.query */ "./graphql/films.query.js");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _store_films_action__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/films/action */ "./store/films/action.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
-/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
-/* harmony import */ var _public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../public/images/twinkle.gif */ "./public/images/twinkle.gif");
-/* harmony import */ var _utils_formatIt__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils/formatIt */ "./utils/formatIt.js");
+/* harmony import */ var _components_rating_Rating__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/rating/Rating */ "./components/rating/Rating.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var _graphql_films_query__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../graphql/films.query */ "./graphql/films.query.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _store_films_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../store/films/action */ "./store/films/action.js");
+/* harmony import */ var _utils_formatIt__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/formatIt */ "./utils/formatIt.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../public/sass/style.global.sass */ "./public/sass/style.global.sass");
+/* harmony import */ var _public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_public_sass_style_global_sass__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
+/* harmony import */ var _public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../public/images/twinkle.gif */ "./public/images/twinkle.gif");
+
 
 
  // Apollo  Client
@@ -57434,16 +57475,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // 3rd Party
+ // Utils & 3rd Party
+
 
  // Look & Feel
 
 
 
 
-
 const styling = {
-  backgroundImage: `url('${_public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_11__["default"]}')`,
+  backgroundImage: `url('${_public_images_twinkle_gif__WEBPACK_IMPORTED_MODULE_13__["default"]}')`,
   backgroundRepeat: "repeat",
   height: "100%"
 };
@@ -57455,7 +57496,7 @@ const Index = props => {
     data,
     loading,
     error
-  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_graphql_films_query__WEBPACK_IMPORTED_MODULE_4__["default"]); // Error Handling for useQuery to GraphQl API
+  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useQuery"])(_graphql_films_query__WEBPACK_IMPORTED_MODULE_5__["default"]); // Error Handling for useQuery to GraphQl API
 
   if (error) {
     if (typeof error === 'string') {
@@ -57509,7 +57550,7 @@ const Index = props => {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     className: "main",
     style: styling
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_10__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_12__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Star Wars API Reactor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "films-intro"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, data.films.map(film => {
     // Load static images based on the title of the film                
@@ -57533,9 +57574,13 @@ const Index = props => {
       className: "film-detail"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Director:"), " ", film.director), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "film-detail"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Released:"), " ", moment__WEBPACK_IMPORTED_MODULE_8___default()(film.releaseDate).format('DD/MM/YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Released:"), " ", moment__WEBPACK_IMPORTED_MODULE_10___default()(film.releaseDate).format('DD/MM/YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "film-crawl"
-    }, film.openingCrawl.replace(/<[/]?[pb]>/g, '')));
+    }, film.openingCrawl.replace(/<[/]?[pb]>/g, '')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "film-rating"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rate Film"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_rating_Rating__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      film: "film"
+    })));
   }))))));
 }; // Load the films if isServer side request
 
@@ -57544,25 +57589,26 @@ Index.getInitialProps = async ({
   store,
   isServer
 }) => {
-  store.dispatch(Object(_store_films_action__WEBPACK_IMPORTED_MODULE_7__["loadFilms"])(isServer));
+  store.dispatch(Object(_store_films_action__WEBPACK_IMPORTED_MODULE_8__["loadFilms"])(isServer));
   return {
     isServer
   };
 };
 
 const mapStateToProps = (state, props) => {
+  console.log("mapStateToProps: ", [state, props]);
   return {
-    films: Object(_store_films_action__WEBPACK_IMPORTED_MODULE_7__["loadFilms"])(state.films, props)
+    films: props
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadFilms: Object(redux__WEBPACK_IMPORTED_MODULE_5__["bindActionCreators"])(_store_films_action__WEBPACK_IMPORTED_MODULE_7__["loadFilms"], dispatch)
+    loadFilms: Object(redux__WEBPACK_IMPORTED_MODULE_6__["bindActionCreators"])(_store_films_action__WEBPACK_IMPORTED_MODULE_8__["loadFilms"], dispatch)
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(mapStateToProps, mapDispatchToProps)(Index));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_7__["connect"])(mapStateToProps, mapDispatchToProps)(Index));
 
 /***/ }),
 
@@ -57617,8 +57663,6 @@ __webpack_require__.r(__webpack_exports__);
   const formatted = [];
 
   if (Object(lodash__WEBPACK_IMPORTED_MODULE_0__["isObject"])(value) && Object.keys(value).length > 0) {
-    console.log("Object Value:", value);
-
     for (let key in value) {
       formatted.push(value[key]);
     }
@@ -57636,7 +57680,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!**************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fcraigmoss%2FApps%2Fstarwars-api-reactor%2Fpages%2Findex.js ***!
   \**************************************************************************************************************************************/
@@ -57659,5 +57703,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

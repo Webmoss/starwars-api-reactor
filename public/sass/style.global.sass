@@ -22,7 +22,6 @@ html, body
     font-size: 14px
     line-height: 24px
 
-
   button
     align-items: center
     background-color: #ffe81f
@@ -52,31 +51,35 @@ html, body
     h1
       font-size: 30px
       line-height: 40px
-      margin: 5% 0 0 0
+      margin: 2% 0 0 0
       text-decoration: underline
 
   
-
   .films-intro
-    margin: 5% 0 0 0
+    margin: 2% 0 0 0
     padding: 0
     width: 100%
     height: auto
     ul
       margin: 0
       padding: 0
+      display: -webkit-box
+      display: -ms-flexbox
       display: flex
-      justify-content: space-evenly
-      flex-flow: row wrap
-      
+      -ms-flex-wrap: wrap
+      flex-wrap: wrap
       li
-        margin: 0 0 20px 0
+        margin: 15px
         padding: 10px
         list-style: none
         background-color: #ffffff
         border-radius: 4px
-        width: calc(100% / 7)
-        
+        -ms-flex-preferred-size: 0
+        flex-basis: 0
+        -webkit-box-flex: 1 
+        -ms-flex-positive: 1
+        flex-grow: 1
+        max-width: 100%
         a
           color: #000000
           text-decoration: none
@@ -95,7 +98,7 @@ html, body
         color: #424743
         font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif
         font-size: 14px
-        font-weight: 300
+        font-weight: 400
         line-height: 20px
 
       .film-crawl
@@ -108,8 +111,15 @@ html, body
       .film-detail
         color: #000000
         font-family: Roboto, monospace, serif
-        font-size: 12px
+        font-size: 11px
         font-weight: 400
         line-height: 14px
+
+      .film-rating
+        color: #000000
+        font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif
+        font-size: 11px
+        font-weight: 400
+        line-height: 13px
 
           

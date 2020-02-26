@@ -1,25 +1,32 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Rating from '../components/rating/Rating';
+
 // Apollo  Client
 import { useQuery } from '@apollo/react-hooks';
 import FILMS_QUERY from '../graphql/films.query';
+
 // Redux Store
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { loadFilms } from '../store/films/action';
-// 3rd Party
-import moment from "moment"
+
+// Utils & 3rd Party
+import formatIt from '../utils/formatIt';
+import moment from "moment";
+
 // Look & Feel
 import '../public/sass/style.global.sass';
 import Layout from '../components/Layout';
 import BG from '../public/images/twinkle.gif';
-import formatIt from '../utils/formatIt';
+
 const styling = {
   backgroundImage: `url('${BG}')`,
   backgroundRepeat:"repeat",
   height:"100%"
 }
+
 
 const Index = (props) => {
 
@@ -86,21 +93,21 @@ const Index = (props) => {
                     <a>{film.title}</a>
                   </Link> 
                   <br></br>
+                  
                   <span className="film-detail"><strong>Director:</strong> { film.director }</span><br></br>
                   <span className="film-detail"><strong>Released:</strong> { moment(film.releaseDate).format('DD/MM/YYYY') }</span><br></br>
+                  
                   <p className="film-crawl">{ film.openingCrawl.replace(/<[/]?[pb]>/g, '') }</p>
                   
-                  {/* WIP */}
-                  {/* <span className="film-detail">Producers: { formatIt(film.producer) }</span><br></br>
-                  <span className="film-detail">Planets: { formatIt(film.planets) }</span><br></br>
-                  <span className="film-detail">Species: { formatIt(film.species) }</span><br></br>
-                  <span className="film-detail">Starships: { formatIt(film.starships) }</span><br></br>
-                  <span className="film-detail">Vehicles: { formatIt(film.vehicles) }</span><br></br> */}
+                  <div className="film-rating">
+                    <h3>Rate Film</h3>
+                    <Rating film="film" />
+                  </div>
+
                 </li>;
               })}
             </ul>
           </div>
-
         </Layout>
       </main>
     </div>
@@ -114,8 +121,9 @@ Index.getInitialProps = async ({ store, isServer }) => {
 }
 
 const mapStateToProps = (state, props) => {
+  console.log("mapStateToProps: ", [state, props])
   return {
-    films: loadFilms(state.films, props)
+    films: props
   }
 }
 

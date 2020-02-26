@@ -3,9 +3,6 @@ import { isObject, isArray, isString } from 'lodash';
 export default value => {
   const formatted = [];
   if (isObject(value) && Object.keys(value).length > 0) {
-    
-    console.log("Object Value:", value)
-    
     for (let key in value) {
       formatted.push(value[key]);
     }
